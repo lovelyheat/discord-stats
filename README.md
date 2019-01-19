@@ -1,4 +1,4 @@
-Discord Stats
+# Discord Stats
 **************
 **A discord.js "extension" for server statistics made, very easy to use.**
 
