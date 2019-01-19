@@ -54,10 +54,37 @@ class Stats {
                 member.guild.channels.get(this.options.totalChannel).setName('👥 Total Members: ' + totalMembers);
                 member.guild.channels.get(this.options.usersChannel).setName('👥 Total Users: ' + users);
                 member.guild.channels.get(this.options.botsChannel).setName('🤖 Total Bots: ' + bots);
+                log(member.user.tag + ' joined and the channels were updated.');
+            } catch(err) {
+                error(err.message);
+                process.exit();
+            }
+         });
+
+         client.on('guildMemberRemove', member => {
+            let totalMembers = 0;
+            let users = 0;
+            let bots = 0;
+
+            member.guild.members.forEach(u => { 
+                totalMembers += 1;
+                if(u.user.bot) {
+                    bots += 1;
+                } else {
+                    users += 1;
+                }
+            });
+
+            if(member.guild.id !== this.options.guildID) throw new Error('The bot is in multiple servers or you set the guildID wrong. Please update.');
+
+            try {
+                member.guild.channels.get(this.options.totalChannel).setName('👥 Total Members: ' + totalMembers);
+                member.guild.channels.get(this.options.usersChannel).setName('👥 Total Users: ' + users);
+                member.guild.channels.get(this.options.botsChannel).setName('🤖 Total Bots: ' + bots);
+                log(member.user.tag + ' left and the channels were updated.');
             } catch(err) {
                 error(err.message);
             }
-
          });
 
          /**    
@@ -68,6 +95,7 @@ class Stats {
             client.login(this.token);
          } catch(err) {
             error(err.message);
+            process.exit();
          }
     }
 }

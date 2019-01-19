@@ -19,7 +19,8 @@ Click [here](https://support.discordapp.com/hc/en-us/articles/206346498-Where-ca
 Example code:
 ```js
 const discordStats = require('discord-stats');
-const bot = new discordStats('bot user TOKEN', {
+
+const client = new discordStats('bot user TOKEN', {
     guildID: 'Your Guild ID',
     totalChannel: 'Your Total Members Channel ID',
     usersChannel: 'Your Total Users Channel ID',
