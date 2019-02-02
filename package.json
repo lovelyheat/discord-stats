@@ -1,6 +1,6 @@
 {
   "name": "discord-stats",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A statistics bot for your discord server which can be made in 1 minute.",
   "main": "index.js",
   "scripts": {

@@ -24,7 +24,11 @@ const client = new discordStats('bot user TOKEN', {
     guildID: 'Your Guild ID',
     totalChannel: 'Your Total Members Channel ID',
     usersChannel: 'Your Total Users Channel ID',
-    botsChannel:  'Your Total Bots Channel ID'
+    botsChannel:  'Your Total Bots Channel ID',
+}, {
+   total: 'Total Members: {totalMembers}',
+   users: 'Total Users: {users}',
+   bots: 'Total Bots: {bots}',
 });
 ```
 That's it!
